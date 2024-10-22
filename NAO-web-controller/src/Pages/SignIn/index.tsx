@@ -15,7 +15,7 @@ function SignIn() {
   const handleSignInClick = () => {
 
     if (username === 'nao' && password === 'nao') {
-      navigate('/menu');
+      navigate('/main-controller');
     } else {
       alert('Invalid username or password');
     }

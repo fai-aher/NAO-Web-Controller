@@ -11,7 +11,7 @@ import './AppRouter.css'
 
 const AppRoutes = () => {
 
-  let routes = useRoutes([
+  const routes = useRoutes([
     { path: '/', element: <Welcome /> },
     { path: '/sign-in', element: <SignIn /> },
     { path: '/main-controller', element: <MainController /> },

@@ -10,14 +10,15 @@ function MainController() {
     navigate("/sign-in");
   }
 
-  return (
-    <div className="flex flex-col items-center justify-between h-screen bg-gray-100">
-      
-      {/* Top Rectangle */}
-      <div className="w-[408px] h-[37px] bg-[#3C3C3C] rounded-[3px] justify-start "></div>
+  const handleMenuClick = () => {
+    navigate("/menu");
+  }
 
+  return (
+    <div className="flex flex-col items-center justify-between h-[353px]">
+      
       {/* Back Button */}
-      <div className="absolute top-5 left-5 ">
+      <div className="absolute top-5 left-5 z-50">
         <button className="bg-[#3C3C3C] w-[60px] h-[30px] rounded-[10px] text-white text-[20px]
          flex justify-center items-center transition transform hover:scale-105 hover:bg-gray-700"
          onClick={handleBackClick}>
@@ -71,7 +72,7 @@ function MainController() {
       <div className="w-[40px] h-[104px] bg-[#3C3C3C] rounded-[3px] absolute top-[225px] right-[0px]"></div>
 
       {/* Bottom Buttons */}
-      <div className="flex flex-row w-[715px] h-[100px] space-x-[54px]">
+      <div className="flex flex-row w-[715px] h-[100px] space-x-[54px] absolute bottom-[0px]">
         {/* Left Video Camera */}
         <div className="w-[175px] h-[100px] bg-[#3C3C3C] rounded-[5px] flex justify-center items-center">
           <div className="w-[151px] h-[80px] bg-[#D1D1D1] rounded-[5px]">
@@ -81,8 +82,10 @@ function MainController() {
 
         {/* Middle Button */}
         <div className="w-[251px] h-[75px] bg-[#3C3C3C] rounded-[5px] mt-[25px] flex justify-center items-center">
-          <button className="w-[225px] h-[50px] bg-[#D9D9D9] rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
-            
+          <button className="w-[225px] h-[50px] bg-[#D9D9D9] rounded-[10px]
+           transition transform hover:scale-105 hover:bg-gray-300 flex justify-center"
+           onClick={handleMenuClick}>
+            <img src="svg/menu-icon.svg" alt="NAO" className="w-[50px] h-[50px]" />
           </button>
 
         </div>
@@ -94,9 +97,6 @@ function MainController() {
           </div>
         </div>
       </div>
-
-
-        
     </div>
   )
 }

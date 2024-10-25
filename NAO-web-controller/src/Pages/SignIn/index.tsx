@@ -22,13 +22,10 @@ function SignIn() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-between h-screen bg-gray-100">
-
-      {/* Top Rectangle */}
-      <div className="w-[408px] h-[37px] bg-[#3C3C3C] rounded-[3px] justify-start "></div>
+    <div className="flex flex-col items-center justify-between h-[353px]">
 
       {/* Content */}
-      <div className="flex flex-row w-[510px] h-[200px] ml-20 mb-4 mt-10">
+      <div className="flex flex-row w-[510px] h-[200px] ml-20 mb-4 mt-[60px]">
         <img className="w-[170px] h-[130px] mt-3" src="nao-head.png" alt="NAO-Web-Controller Logo" />
 
         <div className="flex flex-col ml-4 mt-4">

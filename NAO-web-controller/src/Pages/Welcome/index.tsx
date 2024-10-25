@@ -15,13 +15,10 @@ function Welcome() {
 
   return (
 
-    <div className="flex flex-col items-center justify-between h-screen bg-gray-100">
-
-      {/* Top Rectangle */}
-      <div className="w-[408px] h-[37px] bg-[#3C3C3C] rounded-[3px] justify-start "></div>
+    <div className="flex flex-col items-center justify-between h-[353px]">
 
       {/* Content */}
-      <div className="flex flex-row mt-0 w-[510px] h-[120px] ml-20 mb-4">
+      <div className="flex flex-row mt-[85px] w-[510px] h-[100px] ml-20">
         <img className="w-[170px] h-[130px]" src="nao-head.png" alt="NAO-Web-Controller Logo" />
 
         <div className="flex flex-col ml-4 mt-4">

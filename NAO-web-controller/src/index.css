@@ -5,4 +5,5 @@
 body {
     @apply font-roboto;
     color: #3C3C3C;
+    background-color: #ECECEC;
 }

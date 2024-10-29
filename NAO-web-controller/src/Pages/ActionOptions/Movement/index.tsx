@@ -1,8 +1,44 @@
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 function MovementOptions() {
 
+  const API_URL = 'http://192.168.73.102:5000'; 
   const navigate = useNavigate();
+
+    // Función para Toggle Awareness
+    const handleToggleAwareness = async (enable: boolean) => {
+      try {
+        const response = await axios.post(`${API_URL}/toggle_awareness`, {
+          enable: enable,
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error al hacer toggle awareness:', error);
+      }
+    };
+  
+    // Función para Stand Up
+    const handleStandUp = async () => {
+      try {
+        const response = await axios.post(`${API_URL}/stand_up`);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error al hacer stand up:', error);
+      }
+    };
+  
+    // Función para Set Posture
+    const handleSetPosture = async (postureName: string) => {
+      try {
+        const response = await axios.post(`${API_URL}/set_posture`, {
+          posture_name: postureName,
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error al establecer postura:', error);
+      }
+    };
 
   const handleBackClick =() => {
 
@@ -31,23 +67,27 @@ function MovementOptions() {
       <div className="grid grid-cols-3 grid-rows-2 gap-[30px] mt-[10px] ">
         
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px]
-        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
-          Movement 1
+        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={() =>handleToggleAwareness(true)}>
+          Awareness ON
         </button>
 
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px]
-        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
-          Movement 2
+        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={handleStandUp}>
+          Stand Up
         </button>
 
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px]
-        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
-          Movement 3
+        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={() =>handleSetPosture('Sit')}>
+          Sit Down
         </button>
 
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px] 
-        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
-          Movement 4
+        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={() =>handleToggleAwareness(false)}>
+          Awareness OFF
         </button>
 
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px] 

@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-import './SignIn.css'
-
 function SignIn() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')

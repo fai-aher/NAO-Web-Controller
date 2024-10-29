@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 
-import './MainController.css'
-
 function MainController() {
 
   const navigate = useNavigate();

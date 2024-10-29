@@ -1,13 +1,35 @@
 import { useNavigate } from 'react-router-dom'
 
-import './Menu.css'
-
 function Menu() {
 
   const navigate = useNavigate();
 
   const handleBackClick = () => {
     navigate("/main-controller");
+  }
+
+  const handleTasksOptionClick = () => {
+    navigate("/action-options/tasks")
+  }
+
+  const handlePerceptionOptionClick = () => {
+    navigate("/action-options/perception")
+  }
+
+  const handleSpeechOptionClick = () => {
+    navigate("/action-options/speech")
+  }
+
+  const handleMovementOptionClick = () => {
+    navigate("/action-options/movement")
+  }
+
+  const handleWalkingOptionClick = () => {
+    navigate("/action-options/walking")
+  }
+
+  const handleConfigOptionClick = () => {
+    navigate("/action-options/robot-config")
   }
 
   return (
@@ -31,32 +53,38 @@ function Menu() {
       {/* Menu Option Buttons Grid */}
       <div className="grid grid-cols-3 grid-rows-2 gap-[30px] mt-[10px] ">
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px]
-        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
+        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={handleTasksOptionClick}>
           <img className=" w-[45px] h-[40px] mb-[3px]" src="svg/task.svg" alt="Task image" />
           Tasks
         </button>
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px]
-        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
+        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={handleSpeechOptionClick}>
           <img className=" w-[45px] h-[40px] mb-[3px]" src="svg/speak.svg" alt="Task image" />
           Speech
         </button>
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px]
-        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
+        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={handlePerceptionOptionClick}>
           <img className=" w-[45px] h-[40px] mb-[3px]" src="svg/perception.svg" alt="Task image" />
           Perception
         </button>
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px] 
-        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
+        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={handleMovementOptionClick}>
         <img className=" w-[45px] h-[40px] mb-[3px]" src="svg/manipulation.svg" alt="Task image" />
           Movement
         </button>
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px] 
-        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
+        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={handleWalkingOptionClick}>
           <img className=" w-[45px] h-[40px] mb-[3px]" src="svg/navigation.svg" alt="Task image" />
           Walking
         </button>
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px] 
-        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
+        bg-[#585757] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={handleConfigOptionClick}>
           <img className=" w-[45px] h-[40px] mb-[3px]" src="svg/config.svg" alt="Task image" />
           Robot Config
         </button>

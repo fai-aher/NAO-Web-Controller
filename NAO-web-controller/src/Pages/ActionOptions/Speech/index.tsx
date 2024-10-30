@@ -1,13 +1,45 @@
 import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function SpeechOptions() {
 
   const navigate = useNavigate();
+  const [speechText, setSpeechText] = useState('');
 
-  const handleBackClick =() => {
+  const handleBackClick = () => {
 
+    const API_URL = 'http://192.168.73.102:5000';
     navigate("/menu");
-  }
+  } 
+
+  const handleTextToSpeechClick = async () => {
+    if (!speechText.trim()) {
+      console.error('El texto está vacío');
+      return;
+    }
+    try {
+      const response = await axios.post(`${API_URL}/speak`, {
+        text: speechText,
+        animated: true, // Opcional: cambia según necesidad
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error speak:', error);
+    }
+  };
+
+  const handleHelloClick = async () => {
+    try {
+      const response = await axios.post(`${API_URL}/speak`, {
+        text: "こんばんは、ル！おやすみなさい",
+        animated: true,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error speak:', error);
+    }
+  };
 
     return (
       <div className="flex flex-col items-center h-[353px]">
@@ -31,8 +63,9 @@ function SpeechOptions() {
       <div className="grid grid-cols-3 grid-rows-2 gap-[30px] mt-[10px] ">
         
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px]
-        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700">
-          Speech 1
+        bg-[#3C3C3C] text-white rounded-[10px] transition transform hover:scale-105 hover:bg-gray-700"
+        onClick={handleHelloClick}>
+          Good night
         </button>
 
         <button className="flex flex-col justify-center items-center text-[12px] font-bold w-[130px] h-[80px]
